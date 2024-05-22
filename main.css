@@ -12,12 +12,38 @@
 }
 
 .imageContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 240px);
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  gap: 6px;
 }
 
 .pictureFrame {
-    width: 240px;
-    height: 120px;
+  width: 240px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.pictureFrame img {
+  object-fit: fill;
+  object-position: center;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 960px) {
+  .imageContainer {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 240px);
+    gap: 6px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageContainer {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 240px);
+    gap: 6px;
+  }
 }

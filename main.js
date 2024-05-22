@@ -45,17 +45,17 @@ async function pay() {
     await fetch("https://api.thecatapi.com/v1/images/search")
       .then((data) => data.json())
       .then((json) => {
-        const imageUrl = json[0].url
-        const imgFrame = document.createElement("div")
+        const imageUrl = json[0].url;
+        const imgFrame = document.createElement("div");
 
-        imgFrame.classList.add("pictueFrame")
+        imgFrame.classList.add("pictureFrame");
 
-        const img = document.createElement("img")
-        img.src = imageUrl
+        const img = document.createElement("img");
+        img.src = imageUrl;
 
-        imgFrame.append(img)
+        imgFrame.append(img);
 
-        imageContainer.append(imgFrame)
+        imageContainer.append(imgFrame);
       });
 
     amountOwedDiv.innerText = `You still owe ${currentCatTax} cat tax! Pay up!`;
