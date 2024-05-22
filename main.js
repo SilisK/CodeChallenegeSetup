@@ -1,6 +1,11 @@
 //Global currentCatTax variable
 let currentCatTax = 0;
 
+//Global HTML selectors
+const amountOwedDiv = document.getElementById("amountOwed");
+const payButton = document.getElementsByClassName("payBtn")[0];
+const imageContainer = document.getElementsByClassName("imageContainer")[0];
+
 // TODO: calcButtonClick function
 // Function should handle the following items:
 // 1) Generate a random, whole number between 0 and 20.
@@ -11,7 +16,19 @@ let currentCatTax = 0;
 // 6) If the random number is 0, update the pay button so that it is hidden.
 // 7) Both the amountOwed and pay amount button should be updated every time the calculate cat tax button is clicked.
 
-function calcButtonClick() {}
+function calcButtonClick() {
+  currentCatTax = Math.round(Math.random() * 20);
+
+  if (currentCatTax > 0) {
+    amountOwedDiv.innerText = `You owe ${currentCatTax} cat tax! Pay up!`;
+    payButton.innerText = "Pay Cat Tax";
+    payButton.classList.remove("hidden");
+  } else {
+    amountOwedDiv.innerText = `You owe ${currentCatTax} cat tax! You've escaped this time!`;
+    if (!payButton.classList.contains("hidden"))
+      payButton.classList.add("hidden");
+  }
+}
 
 // TODO: payButton function
 // Function should handle the following items:
@@ -22,4 +39,27 @@ function calcButtonClick() {}
 // 5) Once the cat image is retrieved, append the image to the image container
 // 6) If the cat wax was not payable (amount was less than or equal to 0) when the button was clicked, replace the entire contents of the container with the gif found here (https://gfycat.com/snivelingbeautifuljoey-cat)
 
-function payButton() {}
+async function pay() {
+  currentCatTax--;
+  if (currentCatTax > 0) {
+    await fetch("https://api.thecatapi.com/v1/images/search")
+      .then((data) => data.json())
+      .then((json) => {
+        const imageUrl = json[0].url
+        const imgFrame = document.createElement("div")
+
+        imgFrame.classList.add("pictueFrame")
+
+        const img = document.createElement("img")
+        img.src = imageUrl
+
+        imgFrame.append(img)
+
+        imageContainer.append(imgFrame)
+      });
+
+    amountOwedDiv.innerText = `You still owe ${currentCatTax} cat tax! Pay up!`;
+  } else if (currentCatTax <= 0) {
+    amountOwedDiv.innerText = "Your debts are paid...";
+  }
+}

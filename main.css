@@ -1,0 +1,23 @@
+/* Make everything centered */
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.payBtn {
+}
+
+.hidden {
+  display: none;
+}
+
+.imageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    gap: 16px;
+}
+
+.pictureFrame {
+    width: 240px;
+    height: 120px;
+}

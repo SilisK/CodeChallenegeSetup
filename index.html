@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cat Tax Calculator</title>
     <!-- TODO: Import Bootstrap CSS from CDN -->
     <!-- TODO: Create main.css and link it  -->
-</head>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  </head>
 
-<body>
-    <div class="container">
-        <h1>Cat Tax Calculator</h1>
-        <p>Paying your cat taxes is a lot easier than paying your income taxes. Just click the button below to calculate
-            your tax.</p>
-        <!-- TODO: Call calcButtonClick function when this button is clicked -->
-        <!-- TODO: Style this button as a primary button with bootstrap -->
-        <button>Calculate My Cat Tax</button>
-        <p id='amountOwed'></p>
-        <!-- TODO: Add button that lets you pay your cat tax -->
-        <!-- TODO: Call payButton function when this button is clicked -->
-        <!-- TODO: Style this button as a success button with bootstrap -->
-        <!-- TODO: This button should not show unless a tax amount has been calculated -->
-        <button class="payBtn"></button>
-        <div class="imageContainer"></div>
+  <body>
+    <div class="container text-center py-16 grid gap-4 place-items-center">
+      <h1 class="text-6xl font-bold">Cat Tax Calculator</h1>
+      <p class="p-4">
+        Paying your cat taxes is a lot easier than paying your income taxes.
+        Just click the button below to calculate your tax.
+      </p>
+      <!-- TODO: Call calcButtonClick function when this button is clicked -->
+      <!-- TODO: Style this button as a primary button with bootstrap -->
+      <button onclick="calcButtonClick()" class="bg-blue-500 p-3 rounded text-white w-max hover:shadow-xl">Calculate My Cat Tax</button>
+      <p id="amountOwed"></p>
+      <!-- TODO: Add button that lets you pay your cat tax -->
+      <!-- TODO: Call payButton function when this button is clicked -->
+      <!-- TODO: Style this button as a success button with bootstrap -->
+      <!-- TODO: This button should not show unless a tax amount has been calculated -->
+      <button class="payBtn bg-green-500 p-3 rounded text-white w-max hidden hover:shadow-xl" onclick="pay()"></button>
+      <div class="imageContainer"></div>
     </div>
-</body>
-<!-- TODO: Import Bootstrap JS and jQuery CSS via CDN -->
-<!-- TODO: Import main.js file -->
-
+  </body>
+  <!-- TODO: Import Bootstrap JS and jQuery CSS via CDN -->
+  <!-- TODO: Import main.js file -->
+  <script src="main.js"></script>
 </html>
